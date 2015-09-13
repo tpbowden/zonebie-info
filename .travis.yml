@@ -1,18 +1,19 @@
 language: ruby
 branches:
   only:
-    - master
-    - /^v[0-9]+\.[0-9]+\.[0-9]+/
+  - master
+  - /^v[0-9]+\\.[0-9]+\\.[0-9]+/
 rvm:
-  - 2.0.0
-  - ruby-head
-  - jruby-9.0.1.0
+- 2.0.0
+- ruby-head
+- jruby-9.0.1.0
 deploy:
   provider: rubygems
   api_key:
-    secure: clYHhpfYieW4ZMPlDwhdsxZAaca6Ltg8fSDtmQcNly40+fOhAhBnR+VFX6VODX3jx0Jv0MlIZRqWn4V9LVERaEMvKwSL2qNnk2sdMe9Kbh+lXD4auCjgHhFKXN6dzUfXmJYKzjuUaMtK4m7aBLKnm2JLm3omUa4c0Yrnj3qS/to=
+    secure: tWRyrJ81PWGWsmZqhu/D4A3JwCPel9SZO0LO8dgs4P0zLU85SGzF79zm9uTlwbKNLx4Rx4K5SEI4gr3BvDe6i87yj3k1nxK+q8SbPt5iENX0UsTMK+hkmf5MvWEIq450nKQT4QLHkSzTI3mmhYwNcMbNvNIRpzA+Fcoj2KZy2yxlhpFXWD1Jp0rYbbgFev7uITYhC7paf8V6/SUuqV2sNaLoX4MDdy3QuN0cS/EMdOUo++TQSTJuFUQYMQnRs0rl7JgHGl5+NrzXj6slW6XWdBNPrVRoh/nbBrg6JO+2Ysqlji7GYMZ0DwClQpUKHIbRndcM//DJ/qZyFHYdXY9E0AOhKP8IjV9unnPxXf/cL9IAYDh90eXuNyk+qq8olH6GN5GTk8BAlZ75Eu3brpqjzE36Wf/Mro/Tr36LJJ4AyP/9faerHyBYc0c+dkxk6Q+CpMm8mkuDwgM28PHx6WwnzNHgzi0LEeA+PdoDWciGoNAd8sD+N4xYQpqItgLKENeVwzECqngtvXc3/sbbCEHGrUs3nZ4Z9SHxyE9TJEtVFkN0HXm51XcmOu/S4D0zIC6Zq2TUDFDpa1Xhnhl3NYCVqNc4aDqnbRxPZsABGnS7Sc/OFDXjiLplrk/yNbfKWCl/Sm20xDvKffdlcoBF778RBwSLGgSCFHFrD2P08FEsR1g=
+  gem: zonebie-info
   on:
-    tags: true
     all_branches: true
-    repo: tpbowden/zonebie-info
     rvm: 2.0.0
+    tags: true
+    repo: tpbowden/zonebie-info
