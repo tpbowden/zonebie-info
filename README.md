@@ -1,4 +1,4 @@
-# Zonebie Info
+# Zonebie Info [![Build Status](https://travis-ci.org/tpbowden/zonebie-info.svg)](https://travis-ci.org/tpbowden/zonebie-info)
 
 Zonebie plugin that prints details of the random timezone where available
 
