@@ -10,9 +10,15 @@ Zonebie plugin that prints details of the random timezone (if available)
 
 ### RSpec
 
-A pre made RSpec hook can be used which will automatically set a random timezone before
-your tests and print the details after. This can be set up by using `require 'zonebie/info/rspec'`
-in your `spec_helper.rb`.
+In `spec_helper.rb`:
+
+    require 'zonebie/info/rspec'
+
+### Cucumber
+
+In `env.rb`
+
+    require 'zonebie/info/cucumber'
 
 ### Manual Setup
 
