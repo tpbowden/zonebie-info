@@ -4,7 +4,7 @@ Gem::Specification.new do |gem|
   gem.authors       = ['Tom Bowden']
   gem.email         = ['tom.b1992@gmail.com']
   gem.description   = 'Add info from Wikipedia to your Zonebie output'
-  gem.summary = 'Add info from Wikipedia to your Zonebie output'
+  gem.summary       = 'Add info from Wikipedia to your Zonebie output'
   gem.homepage      = 'https://github.com/tpbowden/zonebie-info'
   gem.license       = 'MIT'
 

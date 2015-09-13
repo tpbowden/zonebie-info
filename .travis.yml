@@ -1,0 +1,18 @@
+language: ruby
+branches:
+  only:
+    - master
+    - /^v[0-9]+\.[0-9]+\.[0-9]+/
+rvm:
+  - 1.9.3
+  - ruby-head
+  - jruby-1.7.19
+deploy:
+  provider: rubygems
+  api_key:
+    secure: clYHhpfYieW4ZMPlDwhdsxZAaca6Ltg8fSDtmQcNly40+fOhAhBnR+VFX6VODX3jx0Jv0MlIZRqWn4V9LVERaEMvKwSL2qNnk2sdMe9Kbh+lXD4auCjgHhFKXN6dzUfXmJYKzjuUaMtK4m7aBLKnm2JLm3omUa4c0Yrnj3qS/to=
+  on:
+    tags: true
+    all_branches: true
+    repo: tpbowden/zonebie-info
+    rvm: 1.9.3
