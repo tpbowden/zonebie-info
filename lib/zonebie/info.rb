@@ -5,7 +5,7 @@ module Zonebie
   class << self
     def set_timezone_with_info
       set_random_timezone
-      load_from_wikipedia(::Time.zone)
+      load_from_wikipedia(::Time.zone.name)
     end
 
     def load_from_wikipedia(zone)
