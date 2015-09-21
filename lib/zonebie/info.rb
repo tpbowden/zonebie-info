@@ -1,5 +1,6 @@
 require 'zonebie'
 require 'wikipedia'
+require 'byebug'
 
 module Zonebie
   class << self
@@ -15,11 +16,14 @@ module Zonebie
     end
 
     def print_timezone_info
-      case @request
-      when nil
+      if @request.nil?
         $stderr.puts '', 'Please set the ZONEBIE_INFO environment variable to load data from Wikipedia'
       else
-        $stdout.puts '', @request.join.value
+        if @request.alive?
+          $stderr.puts '', 'Wikipedia download did not complete in time, please check your network connection and try again later'
+        else
+          $stdout.puts '', @request.join.value
+        end
       end
     end
 

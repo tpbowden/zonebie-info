@@ -21,6 +21,7 @@ describe '#print_timezone_info' do
   end
 
   it 'prints info about the time zone to stdout' do
+    sleep 0.01
     Zonebie.print_timezone_info
     out.rewind
     expect(out.read).to eq expected

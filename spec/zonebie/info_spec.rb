@@ -64,8 +64,29 @@ describe Zonebie do
       end
     end
 
+    context 'when the request has not completed in time' do
+      let(:message) do
+        'Wikipedia download did not complete in time, please check your network connection and try again later'
+      end
+      let(:t) { Thread.new { sleep 1000 } }
+
+      before do
+        Zonebie.instance_variable_set('@request', t)
+        $stderr = out
+      end
+
+      after do
+        $stderr = STDERR
+      end
+      it 'informs the user the request did not finish in time' do
+        Zonebie.print_timezone_info
+        out.rewind
+        expect(out.read).to eq "\n#{message}\n"
+      end
+    end
+
     context 'when the request succeeds' do
-      let(:t) { Thread.new { 'hello' } }
+      let!(:t) { Thread.new { 'hello' } }
 
       before do
         Zonebie.instance_variable_set '@request', t
@@ -77,6 +98,7 @@ describe Zonebie do
       end
 
       it 'prints the info from wikipedia' do
+        sleep 0.001 # Allow the thread to complete
         Zonebie.print_timezone_info
         out.rewind
         expect(out.read).to eq "\nhello\n"
