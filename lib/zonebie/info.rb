@@ -1,6 +1,5 @@
 require 'zonebie'
 require 'wikipedia'
-require 'byebug'
 
 module Zonebie
   class << self
