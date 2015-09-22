@@ -45,7 +45,7 @@ describe Zonebie do
 
     context 'when the request is nil' do
       let(:message) do
-        'Please set the ZONEBIE_INFO environment variable to load data from Wikipedia'
+        'Please set a timezone before printing the info'
       end
 
       before do
@@ -82,6 +82,26 @@ describe Zonebie do
         Zonebie.print_timezone_info
         out.rewind
         expect(out.read).to eq "\n#{message}\n"
+      end
+    end
+
+    context 'when the request fails' do
+      before do
+        allow(Wikipedia).to receive(:find).and_raise StandardError
+        $stdout = out
+        Zonebie.set_timezone_with_info
+        out.rewind
+      end
+
+      after do
+        $stdout = STDOUT
+      end
+
+      it 'prints the info from wikipedia' do
+        sleep 0.001 # Allow the thread to complete
+        Zonebie.print_timezone_info
+        out.rewind
+        expect(out.read).to eq "\nRequest to wikipedia failed, please check your network connection and try again later\n"
       end
     end
 

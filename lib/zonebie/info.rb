@@ -10,13 +10,17 @@ module Zonebie
 
     def load_from_wikipedia(zone)
       @request = Thread.new do
-        download_summary(zone)
+        begin
+          download_summary(zone)
+        rescue StandardError
+          'Request to wikipedia failed, please check your network connection and try again later'
+        end
       end
     end
 
     def print_timezone_info
       if @request.nil?
-        $stderr.puts '', 'Please set the ZONEBIE_INFO environment variable to load data from Wikipedia'
+        $stderr.puts '', 'Please set a timezone before printing the info'
       else
         if @request.alive?
           $stderr.puts '', 'Wikipedia download did not complete in time, please check your network connection and try again later'
